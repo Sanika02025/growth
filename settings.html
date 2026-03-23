@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrowSphere | Settings</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="js/settings.js" defer></script>
+</head>
+
+<body>
+  <header class="top-nav">
+    <div class="logo">🌱 GrowSphere</div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="planner.html">Planner</a>
+      <a href="progress.html">Progress</a>
+      <a href="Body & Brain.html">Relax</a>
+      <a href="resume.html">Resume</a>
+      <a href="settings.html">⚙️</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 🎨 Theme Selector -->
+    <section>
+      <h2>🎨 Select Theme</h2>
+      <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="nature">Nature</option>
+        <option value="galaxy">Galaxy</option>
+        <option value="calm">Calm</option>
+      </select>
+    </section>
+
+    <!-- 🌗 Dark Mode Toggle -->
+    <section>
+      <h2>🌗 Dark/Light Mode</h2>
+      <label>
+        <input type="checkbox" id="darkModeToggle"> Enable Dark Mode
+      </label>
+    </section>
+
+    <!-- 🔤 Font Size & Contrast -->
+    <section>
+      <h2>🔤 Font & Contrast</h2>
+      <button onclick="increaseFont()">A+</button>
+      <button onclick="decreaseFont()">A-</button>
+      <button onclick="toggleContrast()">Toggle Contrast</button>
+    </section>
+
+    <!-- 🔠 Font Family Selector -->
+    <section>
+      <h2>🔠 Font Style</h2>
+      <select onchange="changeFontFamily(this.value)">
+        <option value="'Quicksand', sans-serif">Quicksand</option>
+        <option value="'Poppins', sans-serif">Poppins</option>
+        <option value="'Roboto Mono', monospace">Roboto Mono</option>
+        <option value="'Playfair Display', serif">Playfair Display</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Courier New', monospace">Courier New</option>
+        <option value="'Comic Sans MS', cursive">Comic Sans</option>
+      </select>
+    </section>
+
+    <!-- ♻️ Reset All -->
+    <section>
+      <h2>♻️ Reset My Settings</h2>
+      <button onclick="resetSettings()">Reset All</button>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">
+    <p>&copy; 2025 GrowSphere</p>
+  </footer>
+</body>
+</html>

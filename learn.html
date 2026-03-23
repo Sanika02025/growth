@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Learn</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="top-nav">
+  <div class="logo">🌱 GrowSphere</div>
+  <nav class="nav-links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="learn.html" class="active">Learn</a>
+    <a href="planner.html">Planner</a>
+    <a href="progress.html">Progress</a>
+    <a href="Body & Brain.html">Relax</a>
+    <a href="resume.html">Resume</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ✅ Smart To-Do List -->
+  <section id="todo-list">
+    <h2>🧠 Smart To-Do</h2>
+    <input type="text" id="taskInput" placeholder="E.g., Revise Java Arrays">
+    <button onclick="addTask()">Add</button>
+    <ul id="task-list"></ul>
+  </section>
+
+  <!-- ✅ Subject-wise Topic Tracker -->
+  <section id="topic-tracker">
+    <h2>📌 Subject-wise Topic Tracker</h2>
+    <div class="subject-inputs">
+      <select id="subjectSelect">
+        <option value="">-- Select Subject --</option>
+      </select>
+      <input type="text" id="newSubjectName" placeholder="Add new subject">
+      <button onclick="addNewSubject()">➕ Add Subject</button>
+    </div>
+    <ul id="topicList"></ul>
+  </section>
+
+  <!-- ✅ Subject Progress Tracker -->
+  <section id="subject-tracker">
+    <h2>📈 Subject Progress Tracker</h2>
+    <div id="subjectList"></div>
+    <canvas id="progressChart" height="200"></canvas>
+  </section>
+
+  <!-- ✅ Daily Study Planner -->
+  <section id="daily-scheduler">
+    <h2>🕒 Daily Study Planner</h2>
+    <div class="scheduler-inputs">
+      <input type="time" id="scheduleTime" />
+      <input type="text" id="scheduleSubject" placeholder="Subject (e.g., Java)" />
+      <input type="text" id="scheduleTopic" placeholder="Topic (e.g., Inheritance)" />
+      <button onclick="addSchedule()">➕ Add</button>
+    </div>
+    <ul id="todaySchedule"></ul>
+  </section>
+
+  <!-- ✅ Flashback -->
+  <section id="flashback">
+    <h2>💡 Flashback</h2>
+    <textarea placeholder="What did you revise yesterday?"></textarea>
+  </section>
+
+  <!-- ✅ Weekly Study History -->
+  <section id="weekly-history">
+    <h2>📆 Weekly Study History</h2>
+    <div id="weekLog"></div>
+  </section>
+
+  <!-- ✅ MicroQuiz Zone -->
+  <section id="quiz-zone">
+    <h2>🧪 MicroQuiz Zone</h2>
+    <p>Q: What does JVM stand for?</p>
+    <button onclick="alert('Correct!')">Java Virtual Machine</button>
+    <button onclick="alert('Oops!')">Java Volume Memory</button>
+  </section>
+</main>
+
+<footer class="bottom-footer">
+  <p>&copy; 2025 GrowSphere</p>
+</footer>
+
+<!-- ✅ Script -->
+<script src="js/learn.js"></script>
+</body>
+</html>

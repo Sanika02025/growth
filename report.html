@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Reports</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="logo">🌱 GrowSphere</div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="planner.html">Planner</a>
+      <a href="progress.html">Progress</a>
+      <a href="Body & Brain.html">Relax</a>
+      <a href="resume.html">Resume</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>📅 Select Date Range</h2>
+      <input type="date" id="start-date"> to
+      <input type="date" id="end-date">
+      <button onclick="generateReport()">Generate Report</button>
+    </section>
+
+    <section>
+      <h2>📊 Mood vs Study Chart</h2>
+      <canvas id="moodStudyChart" height="200"></canvas>
+    </section>
+
+    <section id="bloom-report">
+      <h2>🌱 Bloom History</h2>
+      <ul id="bloomList">
+        <li>📝 DSA Linked Lists - 7 July</li>
+        <li>⚖️ Law Module 2 - 8 July</li>
+        <li>💡 Java OOP Concepts - 10 July</li>
+      </ul>
+    </section>
+
+    <section>
+      <button onclick="downloadPDF()">📥 Download Report (PDF)</button>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">
+    <p>&copy; 2025 GrowSphere</p>
+  </footer>
+
+  <script>
+    function generateReport() {
+      const ctx = document.getElementById('moodStudyChart').getContext('2d');
+      if (window.reportChart) window.reportChart.destroy(); // Clear previous
+      window.reportChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['July 7', 'July 8', 'July 9', 'July 10', 'July 11'],
+          datasets: [
+            {
+              label: 'Mood (1-5)',
+              data: [4, 3, 5, 4, 2],
+              borderColor: '#a26dff',
+              fill: false,
+              tension: 0.3
+            },
+            {
+              label: 'Study Hours',
+              data: [2, 4, 3, 5, 1],
+              borderColor: '#00c9a7',
+              fill: false,
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#fff' } }
+          },
+          scales: {
+            x: { ticks: { color: '#ccc' } },
+            y: { ticks: { color: '#ccc' } }
+          }
+        }
+      });
+    }
+
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text("GrowSphere Daily Report", 20, 20);
+      doc.setFontSize(12);
+      doc.text("Bloom Entries:", 20, 30);
+      const items = document.querySelectorAll("#bloomList li");
+      items.forEach((item, i) => {
+        doc.text(`- ${item.innerText}`, 20, 40 + i * 10);
+      });
+
+      doc.save("GrowSphere_Report.pdf");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Resume Builder</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/resume.js" defer></script>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="logo">🌱 GrowSphere</div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="planner.html">Planner</a>
+      <a href="progress.html">Progress</a>
+      <a href="Body & Brain.html">Relax</a>
+      <a href="resume.html" class="active">Resume</a>
+      <a href="settings.html">⚙️</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>📄 Build Your Resume</h2>
+      <div class="dashboard-card">
+        <label>Full Name: <input type="text" id="nameInput" placeholder="Enter full name"/></label><br/>
+        <label>Email: <input type="email" id="emailInput" placeholder="Enter email"/></label><br/>
+        <label>Phone: <input type="text" id="phoneInput" placeholder="Enter phone number"/></label><br/>
+        <label>Education: <textarea id="educationInput" placeholder="List education"></textarea></label><br/>
+        <label>Skills: <textarea id="skillsInput" placeholder="List skills"></textarea></label><br/>
+        <label>Projects: <textarea id="projectsInput" placeholder="List projects"></textarea></label><br/>
+        <label>Languages Known: <textarea id="languagesInput" placeholder="List languages"></textarea></label><br/>
+        <label>Hobbies: <textarea id="hobbiesInput" placeholder="List hobbies"></textarea></label><br/>
+
+        <button onclick="saveResume()">💾 Save My Resume</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>📋 Your Resume Preview</h2>
+      <div id="resumePreview" class="dashboard-card">
+        <p>Saved resume content will appear here...</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>🏅 Upload Certificates</h2>
+      <div class="dashboard-card">
+        <label>Certificate Image: <input type="file" id="certImageInput" accept="image/*"></label><br/>
+        <label>Title: <input type="text" id="certTitleInput" placeholder="e.g. Web Dev Bootcamp"/></label><br/>
+        <label>Platform/Institute: <input type="text" id="certOrgInput" placeholder="e.g. Coursera"/></label><br/>
+        <label>Date: <input type="date" id="certDateInput"/></label><br/>
+        <button onclick="addCertificate()">➕ Add Certificate</button>
+        <div class="cert-grid" id="certList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">
+    <p>&copy; 2025 GrowSphere</p>
+  </footer>
+
+</body>
+</html>

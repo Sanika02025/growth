@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Progress</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo">🌱 GrowSphere</div>
+<nav class="nav-links">
+  <a href="dashboard.html">Dashboard</a>
+  <a href="learn.html">Learn</a>
+  <a href="planner.html">Planner</a>
+  <a href="progress.html">Progress</a>
+  <a href="Body & Brain.html">Relax</a>
+  <a href="resume.html">Resume</a>
+  <a href="settings.html">Settings</a>
+</nav>
+
+
+</header>
+
+<main>
+
+  <!-- 📚 Learning Progress -->
+  <section id="learning-progress">
+    <h2>📚 Learning Progress</h2>
+    <canvas id="learningChart" width="300" height="150"></canvas>
+  </section>
+
+  <!-- 😌 Mood vs Study -->
+  <section id="mood-study">
+    <h2>😌 Mood vs Study Hours</h2>
+    <canvas id="moodChart" width="300" height="150"></canvas>
+  </section>
+
+  <!-- 🌸 Bloom Tracker -->
+  <section id="bloom-tracker">
+    <h2>🌸 Bloom Tracker</h2>
+    <ul id="bloomList">
+      <li>“Revised COA pipelining.” – Jul 10</li>
+      <li>“Learned JS DOM.” – Jul 11</li>
+    </ul>
+  </section>
+
+  <!-- 🏆 Weekly Wins -->
+  <section id="weekly-wins">
+    <h2>🏆 Weekly Wins</h2>
+    <ul>
+      <li>✔️ 5-Day Study Streak</li>
+      <li>🧠 Completed Python Basics</li>
+      <li>🌿 Logged 6 Blooms</li>
+    </ul>
+  </section>
+
+</main>
+
+
+<footer class="bottom-footer">
+  <p>&copy; 2025 GrowSphere</p>
+</footer>
+
+
+  <script src="js/progress.js"></script>
+</body>
+</html>

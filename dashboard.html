@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo-calendar-wrap">
+    <div class="logo">🌱 GrowSphere</div>
+    <div id="calendarPreview" class="mini-calendar"></div>
+  </div>
+  <nav class="nav-links">
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="learn.html">Learn</a>
+    <a href="planner.html">Planner</a>
+    <a href="progress.html">Progress</a>
+    <a href="Body & Brain.html">Relax</a>
+    <a href="resume.html">Resume</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+</header>
+
+<main class="dashboard-container">
+
+  <!-- 🎯 Micro Goal -->
+  <section id="micro-goal" class="dashboard-card">
+    <h2>🎯 Micro-Goal for Today</h2>
+    <input type="text" id="goalInput" placeholder="E.g., Complete DS Assignment">
+    <p id="goalText" class="goal-display"></p>
+
+    <div class="goal-progress">
+      <svg viewBox="0 0 36 36" class="circular-chart">
+        <path class="circle-bg"
+          d="M18 2.0845
+             a 15.9155 15.9155 0 0 1 0 31.831
+             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <path class="circle"
+          stroke-dasharray="0, 100"
+          d="M18 2.0845
+             a 15.9155 15.9155 0 0 1 0 31.831
+             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">0%</text>
+      </svg>
+      <button id="markGoalBtn">✅ Mark Done</button>
+    </div>
+  </section>
+
+  <!-- 📊 Quick Stats -->
+  <div class="dashboard-card" id="statsCard">
+    <h2>📊 Quick Stats</h2>
+    <p>📅 Next Exam: <strong id="examCountdown">Loading...</strong></p>
+    <p>🔥 Study Streak: <strong id="streakCount">0 Days</strong></p>
+  </div>
+
+  <!-- 🔔 Reminders -->
+  <div class="dashboard-card">
+    <h2>🔔 Reminders</h2>
+    <ul contenteditable="true" style="list-style: none; padding-left: 0;">
+      <li>✅ Drink 6+ glasses of water</li>
+      <li>📚 Revise Java today</li>
+      <li>💤 Sleep by 9:30 PM</li>
+    </ul>
+  </div>
+
+  <!-- 🌸 Bloom of the Day -->
+  <div class="dashboard-card">
+    <h2>🌸 Bloom of the Day</h2>
+    <textarea rows="3" placeholder="What did you learn today?" id="bloomInput"></textarea>
+  </div>
+
+  <!-- 🧠 Mood Tracker -->
+  <div class="dashboard-card">
+    <h2>🧠 How are you feeling today?</h2>
+    <div class="emojis">
+      <span>😊</span>
+      <span>😐</span>
+      <span>😟</span>
+      <span>😍</span>
+    </div>
+  </div>
+
+  <!-- 📈 Mood vs Study Chart -->
+  <div class="dashboard-card">
+    <h2>📈 Mood vs Study Hours</h2>
+    <canvas id="moodChart" height="200"></canvas>
+  </div>
+
+  <!-- 💬 Quote of the Day -->
+  <div class="dashboard-card quote-card">
+    <h2>💬 Quote of the Day</h2>
+    <blockquote id="dailyQuote">“Success is the sum of small efforts, repeated daily.”</blockquote>
+  </div>
+
+</main>
+
+<footer class="bottom-footer">
+  <p>&copy; 2025 GrowSphere</p>
+</footer>
+
+</body>
+</html>

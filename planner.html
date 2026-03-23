@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Planner</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo">🌱 GrowSphere</div>
+  <nav class="nav-links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="learn.html">Learn</a>
+    <a href="planner.html" class="active">Planner</a>
+    <a href="progress.html">Progress</a>
+    <a href="Body & Brain.html">Relax</a>
+    <a href="resume.html">Resume</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+</header>
+
+<main class="planner-container">
+
+  <!-- 🧠 Smart Daily Planner -->
+  <section class="dashboard-card">
+    <h2>🧠 Smart Daily Planner</h2>
+    <div class="task-form">
+      <input type="text" id="taskInput" placeholder="e.g. Complete Java Assignment" />
+      <input type="time" id="taskTime" />
+      <input type="text" id="taskSubject" placeholder="Subject" />
+      <select id="taskPriority">
+        <option value="">Priority</option>
+        <option value="High">🔴 High</option>
+        <option value="Medium">🟡 Medium</option>
+        <option value="Low">🟢 Low</option>
+      </select>
+      <button id="addTask">➕ Add Task</button>
+    </div>
+
+    <ul id="taskSchedule"></ul>
+
+    <div class="progress-circle">
+      <svg viewBox="0 0 36 36" class="circular-chart">
+        <path class="circle-bg"
+          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="circle"
+          stroke-dasharray="0, 100"
+          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <text x="18" y="20.35" class="percentage">0%</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 📅 Drag-and-Drop Schedule -->
+  <section class="dashboard-card">
+    <h2>📅 Drag-and-Drop Day View</h2>
+    <div class="task-container">
+      <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="task" draggable="true" ondragstart="drag(event)">Revise COA</div>
+        <div class="task" draggable="true" ondragstart="drag(event)">Java Debugging</div>
+        <div class="task" draggable="true" ondragstart="drag(event)">Short DS Quiz</div>
+      </div>
+      <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop here to schedule ⏱️
+      </div>
+    </div>
+  </section>
+
+  <!-- ⏳ Exam Countdown -->
+  <section class="dashboard-card">
+    <h2>⏰ Exam Countdown</h2>
+    <label for="examName">Subject Name:</label>
+    <input type="text" id="examName" placeholder="e.g., DS Midterm">
+    <label for="examDate">Exam Date:</label>
+    <input type="date" id="examDate">
+    <button id="setCountdown">📆 Set Countdown</button>
+    <p id="countdownResult">⏳ Days left: -</p>
+  </section>
+
+  <!-- 🧾 Upload Syllabus -->
+  <section class="dashboard-card">
+    <h2>🧾 Upload Your Syllabus</h2>
+    <input type="file" id="syllabusFile" />
+    <p>📌 Feature in progress: AI-based auto planner from syllabus!</p>
+  </section>
+
+</main>
+
+<footer class="bottom-footer">
+  <p>&copy; 2025 GrowSphere</p>
+</footer>
+
+<script src="js/planner.js"></script>
+</body>
+</html>

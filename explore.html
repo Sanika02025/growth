@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Zone | GrowSphere</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-nav">
+    <div class="logo">GrowSphere</div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="progress.html">Progress</a>
+      <a href="relax.html">Relax</a>
+      <a href="resume.html">Resume</a>
+      <a href="settings.html">Settings</a>
+      <a href="explore.html">Explore 💡</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 🔹 Section 1: Free Courses -->
+    <section>
+      <h2>🎓 Free Learning & Certification</h2>
+      <p>Discover free courses to boost your knowledge and resume.</p>
+      
+      <div class="subject-inputs">
+        <select id="courseCategory">
+          <option value="">All Categories</option>
+          <option value="tech">Tech</option>
+          <option value="health">Health & Wellness</option>
+          <option value="career">Career Skills</option>
+        </select>
+        <select id="courseLevel">
+          <option value="">All Levels</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div id="courseCards" class="cert-grid">
+        <!-- JS will fill this with course cards -->
+      </div>
+    </section>
+
+    <!-- 🔹 Section 2: Choose Your Track -->
+    <section>
+      <h2>🧭 Choose Your Growth Track</h2>
+      <p>Select your focus and get personalized resources.</p>
+      <div class="subject-inputs">
+        <select id="careerTrack">
+          <option value="">Select Career Path</option>
+          <option value="developer">Web Developer</option>
+          <option value="data">Data Analyst</option>
+          <option value="designer">UI/UX Designer</option>
+        </select>
+        <select id="wellnessTrack">
+          <option value="">Select Wellness Focus</option>
+          <option value="fitness">Fitness</option>
+          <option value="sleep">Sleep & Rest</option>
+          <option value="mental">Mental Wellness</option>
+        </select>
+      </div>
+
+      <div id="trackSuggestions" class="cert-grid">
+        <!-- Suggestions will appear here -->
+      </div>
+    </section>
+
+    <!-- 🔹 Section 3: Mindful Tech Tools -->
+    <section>
+      <h2>📱 Mindful Tech Tools</h2>
+      <p>Helpful apps for focus, relaxation, and nutrition.</p>
+      <div class="cert-grid">
+        <div class="certificate-item">
+          <h4>🔔 Focus Keeper</h4>
+          <p>Pomodoro app to stay focused</p>
+          <a href="https://apps.apple.com/us/app/focus-keeper/id867374917" target="_blank">Download</a>
+        </div>
+        <div class="certificate-item">
+          <h4>😴 Sleep Cycle</h4>
+          <p>Track your sleep patterns</p>
+          <a href="https://www.sleepcycle.com/" target="_blank">Visit</a>
+        </div>
+        <div class="certificate-item">
+          <h4>🥗 MyFitnessPal</h4>
+          <p>Log meals, calories, nutrients</p>
+          <a href="https://www.myfitnesspal.com/" target="_blank">Go</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">© 2025 GrowSphere</footer>
+  <script src="js/explore.js"></script>
+
+</body>
+</html>

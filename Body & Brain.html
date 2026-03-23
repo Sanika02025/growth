@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowSphere | Body & Brain</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="logo">🌱 GrowSphere</div>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="learn.html">Learn</a>
+      <a href="planner.html">Planner</a>
+      <a href="progress.html">Progress</a>
+      <a href="Body & Brain.html" class="active">Relax</a>
+      <a href="resume.html">Resume</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 🍎 Intake & Movement Tracker -->
+    <section id="fitness-tracker">
+      <h2>🍎 Track Your Intake & Movement</h2>
+      <label for="meal-type">Meal Type:</label>
+      <select id="meal-type">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+        <option>Snacks</option>
+      </select>
+
+      <label for="food-entry">What did you eat?</label>
+      <input type="text" id="food-entry" placeholder="e.g. Banana, Sandwich" />
+      <button onclick="calculateCalories()">Calculate Calories</button>
+      <p id="calorie-result">Calories: 0 kcal</p>
+
+      <hr style="margin: 1.5rem 0; border: 1px dashed #aaa;" />
+
+      <label for="workout-type">Workout Done:</label>
+      <input type="text" id="workout-type" placeholder="e.g. Walked 2 km" />
+
+      <label for="duration">Duration (minutes):</label>
+      <input type="number" id="duration" placeholder="e.g. 20" />
+      <button onclick="logWorkout()">Log Workout</button>
+      <p id="workout-result">Calories Burned: 0 kcal</p>
+    </section>
+
+ <!-- 🌬️ Breathing Animation -->
+<section id="breathing-tool">
+  <h2>🌬️ Breathe With Me</h2>
+  <p class="breathing-desc">
+    Take a short break from studies and try this 2-minute breathing exercise to refresh your mind and reduce stress.
+  </p>
+  <div id="circle"></div>
+  <p id="breathing-text">Click the button below to begin</p>
+  <button id="start-breathing-btn">Start</button>
+</section>
+
+
+
+    <!-- 🌈 Mood-Based Experience -->
+    <section id="mood-experience">
+      <h2>🌈 Mood-Based Relaxation</h2>
+
+      <div class="mood-selector">
+        <label for="currentMood">🧠 What's your current mood?</label>
+        <select id="currentMood" onchange="updateMoodSuggestions()">
+          <option value="">-- Select Mood --</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="stressed">😣 Stressed</option>
+          <option value="angry">😠 Angry</option>
+          <option value="calm">😌 Calm</option>
+        </select>
+      </div>
+
+      <div class="mood-section">
+        <h3>🎵 Music for You</h3>
+        <audio id="moodMusicPlayer" controls loop></audio>
+        <p id="musicSuggestionText"></p>
+      </div>
+
+      <div class="mood-section">
+        <h3>📚 Try This Today</h3>
+        <p id="hobbySuggestionText"></p>
+      </div>
+
+      <div class="mood-section">
+        <h3>💬 Dear Sanika, here's a thought for today</h3>
+        <blockquote id="quoteText">Select a mood to receive your quote!</blockquote>
+      </div>
+
+      <div class="mood-section">
+        <h3>📈 Today's Mood Summary</h3>
+        <ul id="moodLogList"></ul>
+      </div>
+    </section>
+
+    <!-- 📓 Thought Journal -->
+    <section id="journal">
+      <h2>📓 Thought Journal</h2>
+      <textarea rows="4" placeholder="Write your thoughts..."></textarea>
+    </section>
+
+    <!-- ✨ Guided Prompts -->
+    <section id="prompts">
+      <h2>✨ Guided Prompts</h2>
+      <button onclick="fillPrompt('What am I grateful for today?')">Gratitude</button>
+      <button onclick="fillPrompt('What made me smile today?')">Joy</button>
+      <button onclick="fillPrompt('What’s worrying me right now?')">Let Go</button>
+    </section>
+
+    <!-- ✅ Self-Care Checklist -->
+    <section id="self-care">
+      <h2>✅ Self-Care Checklist</h2>
+      <ul>
+        <li><input type="checkbox"> Drank 6+ glasses of water</li>
+        <li><input type="checkbox"> Took a short walk/stretch</li>
+        <li><input type="checkbox"> Ate a healthy meal</li>
+        <li><input type="checkbox"> Took a 5-minute break</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">
+    <p>&copy; 2025 GrowSphere</p>
+  </footer>
+
+  <!-- 💻 Scripts -->
+  <script>
+    function fillPrompt(text) {
+      document.querySelector("#journal textarea").value = text;
+    }
+
+    function calculateCalories() {
+      const meal = document.getElementById("food-entry").value.toLowerCase();
+      let calories = 0;
+      if (meal.includes("banana")) calories += 89;
+      if (meal.includes("rice")) calories += 200;
+      if (meal.includes("bread")) calories += 80;
+      if (meal.includes("sandwich")) calories += 250;
+      if (meal.includes("milk")) calories += 100;
+      if (meal.includes("egg")) calories += 70;
+      if (meal.includes("chapati")) calories += 100;
+      if (meal.includes("dal")) calories += 120;
+      if (meal.includes("fruit")) calories += 50;
+
+      document.getElementById("calorie-result").innerText = `Calories: ${calories} kcal`;
+    }
+
+    function logWorkout() {
+      const minutes = parseInt(document.getElementById("duration").value);
+      let burned = isNaN(minutes) ? 0 : Math.floor(minutes * 5);
+      document.getElementById("workout-result").innerText = `Calories Burned: ${burned} kcal`;
+    }
+
+    const moodData = {
+      happy: {
+        music: "audio/happy.mp3",
+        suggestion: "Dance or try a gratitude journal.",
+        quote: "Happiness is not out there, it's in you. 🌞 Keep shining, Sanika!"
+      },
+      sad: {
+        music: "audio/soft.mp3",
+        suggestion: "Doodle or watch your comfort movie.",
+        quote: "Tough times never last, but tough people like you do. 💪"
+      },
+      stressed: {
+        music: "audio/meditation.mp3",
+        suggestion: "Try breathing meditation or step outside.",
+        quote: "You don't have to control everything. Just breathe, Sanika. 🌿"
+      },
+      angry: {
+        music: "audio/calm.mp3",
+        suggestion: "Take deep breaths, try journaling or a workout.",
+        quote: "Speak when calm. You got this, Sanika!"
+      },
+      calm: {
+        music: "audio/zen.mp3",
+        suggestion: "Read a short story or color something.",
+        quote: "Calm is a superpower. Enjoy this peace, Sanika. 🌼"
+      }
+    };
+
+    const moodLog = [];
+
+    function updateMoodSuggestions() {
+      const mood = document.getElementById("currentMood").value;
+      if (!mood) return;
+      const data = moodData[mood];
+      document.getElementById("moodMusicPlayer").src = data.music;
+      document.getElementById("musicSuggestionText").innerText = "Mood-matching music playing.";
+      document.getElementById("hobbySuggestionText").innerText = data.suggestion;
+      document.getElementById("quoteText").innerText = data.quote;
+      const time = new Date().toLocaleTimeString();
+      moodLog.push(`🕒 ${time} — Mood: ${mood}`);
+      renderMoodLog();
+    }
+
+    function renderMoodLog() {
+      const logList = document.getElementById("moodLogList");
+      logList.innerHTML = "";
+      moodLog.slice(-5).reverse().forEach(entry => {
+        const li = document.createElement("li");
+        li.textContent = entry;
+        logList.appendChild(li);
+      });
+    }
+  </script>
+  <script>
+  const circle = document.getElementById("circle");
+  const text = document.getElementById("breathing-text");
+  const startBtn = document.getElementById("start-breathing-btn");
+  let breathingInterval;
+
+  function breatheCycle() {
+    text.innerText = "Inhale...";
+    circle.style.transform = "scale(1.5)";
+
+    setTimeout(() => {
+      text.innerText = "Hold...";
+
+      setTimeout(() => {
+        text.innerText = "Exhale...";
+        circle.style.transform = "scale(1)";
+      }, 2000);
+    }, 3000);
+  }
+
+  function startBreathing() {
+    if (!breathingInterval) {
+      breatheCycle(); // Run once immediately
+      breathingInterval = setInterval(breatheCycle, 8000);
+      startBtn.style.display = "none"; // Hide the button once started
+    }
+  }
+
+  startBtn.addEventListener("click", startBreathing);
+</script>
+
+</body>
+</html>

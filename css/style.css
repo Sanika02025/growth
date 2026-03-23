@@ -1,0 +1,1186 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(-45deg, #0a001a, #18002e, #1a004a, #003366, #0a001a);
+  background-size: 500% 500%;
+  animation: liveGradientBlueViolet 20s ease infinite;
+  color: #eae6f5;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+@keyframes liveGradientBlueViolet {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#breath-animation {
+  width: 100px;
+  height: 100px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  background: #bb6bd9;
+  animation: breath 4s ease-in-out infinite;
+}
+
+@keyframes breath {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* ---- Dashboard Layout ---- */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* ---- Card Styling ---- */
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.02);
+}
+/* ======================= 🔧 New Feature Enhancements ======================= */
+
+/* 📈 Chart Container */
+#subjectChartContainer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ✏️ Edit Subject Tracker Fields */
+.edit-inputs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.edit-inputs input {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  width: 100px;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* ✅ Save Button Style */
+.save-btn {
+  background-color: #00c9a7;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+
+.save-btn:hover {
+  background-color: #5fffd2;
+}
+
+/* 📦 Export Button */
+#exportBtn {
+  margin-top: 1rem;
+  background: linear-gradient(145deg, #4db8ff, #2e86de);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#exportBtn:hover {
+  background: linear-gradient(145deg, #6dd5fa, #2980b9);
+}
+
+/* 📌 Pie Chart Tooltip Styling (Chart.js default is fine, this is optional) */
+.chartjs-tooltip {
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* 📱 Responsive Chart Canvas */
+#subjectChart {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ⚠️ Optional: Smooth fade-in for subject items */
+.subject-item {
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.subject-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subject-inputs input,
+.subject-inputs select,
+.subject-inputs button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  border: none;
+}
+#daily-scheduler, #weekly-history {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.scheduler-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.scheduler-inputs input, .scheduler-inputs button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+#todaySchedule li,
+#weekLog li {
+  padding: 0.4rem;
+  margin-bottom: 0.3rem;
+  background: #2c2c2c;
+  color: #eee;
+  border-left: 4px solid #6fcf97;
+  border-radius: 8px;
+}
+select {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #888;
+}
+option {
+  background: #1e1e1e;
+  color: #fff;
+}
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6fcf97;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+/* 🌬️ Breathing Tool */
+#breathing-tool {
+  text-align: center;
+  padding: 2rem;
+  background: #f0f7f5;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 500px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+#circle {
+  width: 150px;
+  height: 150px;
+  margin: 1.5rem auto;
+  background: rgba(0, 204, 153, 0.3);
+  border-radius: 50%;
+  transition: transform 3s ease-in-out;
+}
+
+#breathing-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.breathing-desc {
+  font-style: italic;
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+#start-breathing-btn {
+  padding: 10px 20px;
+  background-color: #39b7ac;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#start-breathing-btn:hover {
+  background-color: #2a9d8f;
+}
+
+
+#weekLog h4 {
+  margin-top: 1rem;
+  color: #d8b4ff;
+}
+#todaySchedule li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+#todaySchedule li button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#todaySchedule li button:hover {
+  transform: scale(1.2);
+}
+.micro-goal-area {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.micro-goal-input {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+/* 🎨 Fix select dropdown appearance in dark theme */
+select {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f1eaff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem;
+  border-radius: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+select:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: #a26dff;
+}
+
+/* 🟣 Option styling inside dropdown */
+option {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Fix white highlight on selection */
+select option:checked,
+select option:hover {
+  background-color: #3e218c !important;
+  color: #fff !important;
+}
+
+.save-goal {
+  background: #6fcf97;
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+#progressChart {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.subject-item progress::-webkit-progress-value {
+  transition: width 0.5s ease-in-out;
+}
+
+/* ---- Emojis ---- */
+.emojis span {
+  font-size: 1.8rem;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.emojis span:hover {
+  transform: scale(1.2);
+}
+
+
+/* ---- Input and Textarea Styling ---- */
+.dashboard-card input,
+.dashboard-card textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+#mood-experience, .mood-section {
+  margin-top: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.mood-selector select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.dashboard-card input::placeholder,
+.dashboard-card textarea::placeholder {
+  color: #ccc;
+}
+
+/* ---- Quote Card Specific ---- */
+.quote-card blockquote {
+  font-style: italic;
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+/* Responsive padding fix */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+}
+
+
+.goal-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #00c9a7;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease-out;
+}
+
+.percentage {
+  fill: #444;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+#smart-todo input {
+  padding: 0.5rem;
+  width: 70%;
+  margin-bottom: 0.5rem;
+}
+
+#smart-todo button {
+  padding: 0.5rem 1rem;
+  background: #00c9a7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#todoList {
+  list-style: none;
+  padding: 0;
+}
+
+#todoList li {
+  padding: 0.4rem;
+  margin: 0.3rem 0;
+  background: #222;
+  border-radius: 5px;
+  color: #eee;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.subject-card {
+  background: #1c1c1c;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+progress {
+  width: 100%;
+  margin-top: 0.5rem;
+  height: 10px;
+}
+.task-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.task-list, .drop-zone {
+  flex: 1;
+  min-width: 200px;
+  min-height: 150px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed #888;
+  border-radius: 10px;
+}
+
+.task {
+  background: #2d2d2d;
+  padding: 0.5rem;
+  margin: 0.4rem 0;
+  border-radius: 5px;
+  cursor: grab;
+  color: #fff;
+}
+
+#syllabus-upload input[type="file"] {
+  margin-top: 0.5rem;
+  background: #222;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+canvas {
+  max-width: 100%;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 1rem;
+}
+#bloom-tracker ul,
+#weekly-wins ul {
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+#circle {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(173, 216, 230, 0.3);
+  border: 2px solid #5dc18b;
+  border-radius: 50%;
+  margin: 1rem auto;
+  transition: transform 4s ease-in-out;
+}
+
+#breathing-text {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #c5f0e3;
+}
+
+#prompts button {
+  margin: 0.5rem;
+  background: #34495e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#prompts button:hover {
+  background: #5dc18b;
+}
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Themes */
+body.nature {
+  background: linear-gradient(to right, #a8e6cf, #dcedc1);
+}
+
+body.galaxy {
+  background: linear-gradient(to right, #1a1a2e, #16213e);
+  color: #fff;
+}
+
+body.calm {
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+}
+
+/* High contrast */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+#subject-tracker {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.subject-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subject-inputs input, .subject-inputs button {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.subject-inputs input {
+  flex: 1;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.subject-inputs button {
+  background-color: #6fcf97;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#subjectList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subject-item {
+  background: #2c2c2c;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* -------------------------- 🌐 Top Navbar --------------------------- */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #d8b4ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f6e1ff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffbdf7;
+  text-shadow: 0 0 4px #bb6bd9;
+}
+
+/* -------------------------- 🧊 Sections --------------------------- */
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.6rem;
+  color: #f1eaff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  margin-bottom: 3rem; /* ⬅️ Increased spacing between sections */
+}
+
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------------- Typography --------------------------- */
+h1, h2 {
+  color: #d8b4ff;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* -------------------------- Inputs & Forms --------------------------- */
+input[type="text"],
+textarea,
+input[type="time"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #a26dff;
+}
+
+/* -------------------------- Buttons --------------------------- */
+button {
+  background: linear-gradient(145deg, #6e3adb, #3e218c);
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #a26dff, #6433b8);
+  transform: translateY(-2px);
+}
+
+/* -------------------------- Mood Picker --------------------------- */
+.emojis {
+  font-size: 2rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+/* -------------------------- Quotes --------------------------- */
+blockquote {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 5px solid #bb6bd9;
+  color: #e0e0f5;
+  font-style: italic;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* -------------------------- Footer --------------------------- */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer a {
+  text-decoration: none;
+  color: #d8b4ff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.bottom-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* -------------------------- Learn/Planner/Progress Sections --------------------------- */
+#todo-list input[type="text"] { width: 70%; }
+#todo-list button { margin-left: 0.5rem; }
+
+#task-list, #subject-plans ul, main ul {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+#task-list li,
+#taskSchedule li,
+main ul li,
+#subject-plans li {
+  background: rgba(255, 255, 255, 0.07);
+  color: #eae6ff;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-left: 5px solid #a26dff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Flashback */
+#flashback p { color: #ccc; }
+#flashback button { margin-top: 0.8rem; }
+
+/* Exam Countdown */
+#countdownResult {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #e4dfff;
+}
+
+/* Syllabus Upload */
+#syllabus-upload {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+}
+
+/* Chart Canvas */
+canvas {
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  main {
+    max-width: 700px;
+    margin: auto;
+  }
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.certificate-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.certificate-item:hover {
+  transform: scale(1.03);
+}
+
+.certificate-item img {
+  max-width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.cert-details h4 {
+  color: #d8b4ff;
+  margin-bottom: 0.3rem;
+}
+
+.cert-details p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+@media (max-width: 768px) {
+  .resume-sections {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .resume-section,
+  .cert-grid {
+    width: 100%;
+  }
+
+  .certificate-item img {
+    height: auto;
+    max-height: 100px;
+  }
+}
+@media (max-width: 600px) {
+  section select,
+  section button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+/* 📱 Resume Page Responsiveness Fix */
+@media (max-width: 768px) {
+  .resume-sections {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .resume-section {
+    width: 100%;
+  }
+
+  .certificate-item {
+    padding: 0.8rem;
+  }
+
+  .certificate-item img {
+    height: auto;
+    max-height: 120px;
+  }
+
+  .cert-details h4 {
+    font-size: 1rem;
+  }
+
+  .cert-details p {
+    font-size: 0.85rem;
+  }
+}
+/* 🌐 Responsive Styles for Relax Tab */
+
+@media (max-width: 768px) {
+  section {
+    padding: 1rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  select,
+  button {
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #fitness-tracker label,
+  #fitness-tracker input,
+  #fitness-tracker select,
+  #fitness-tracker button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  #fitness-tracker p {
+    margin-top: 0.5rem;
+  }
+
+  #prompts button {
+    width: 100%;
+    margin: 0.4rem 0;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  .bottom-footer {
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-nav {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+/* Responsive Layout */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .mood-section, #fitness-tracker, #breathing-tool, #journal, #prompts, #self-care, #mood-experience {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  textarea, input, select, button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  #circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+.logo-calendar-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+.mini-calendar {
+  display: flex;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.goal-display {
+  font-style: italic;
+  color: #555;
+  margin: 5px 0 10px;
+}
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.task-form input, .task-form select, .task-form button {
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#taskSchedule li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f1f1f1;
+  border-radius: 12px;
+  border-left: 5px solid #6fcf97;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+#taskSchedule li:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.task-check {
+  margin-right: 12px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.task-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-time {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d8b4ff;
+}
+
+.task-text {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.task-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+  background-color: #e0e0e0;
+}
+
+.priority.high { background: #ffc2c2; }
+.priority.medium { background: #fff3b0; }
+.priority.low { background: #b2f5ea; }
+@media (max-width: 600px) {
+  #taskSchedule li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .task-tags {
+    gap: 6px;
+  }
+
+  .task-check {
+    align-self: flex-start;
+  }
+}
+#taskSchedule li {
+  background-color: #f0f4ff; /* soft blue box */
+  color: #333;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  list-style-type: none;
+  transition: background 0.3s ease;
+}
+
+#taskSchedule li:hover {
+  background-color: #e0eaff; /* slightly darker on hover */
+}
